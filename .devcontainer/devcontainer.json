@@ -1,8 +1,10 @@
 {
-    "name": "Dev container with all the dependencies installedss",
-  
+    "name": "Dev container with all the dependencies installed",
+    
     // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-    "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+    //"image": "mcr.microsoft.com/devcontainers/python:3",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "remote",
   
     // Features to add to the dev container. More info: https://containers.dev/features.
     // "features": {},
@@ -10,20 +12,25 @@
     "customizations": {
       "vscode": {
         "settings": {},
-        "extensions": ["streetsidesoftware.code-spell-checker"]
+        "extensions": [
+          //"ms-azuretools.vscode-docker",
+          //"4ops.terraform",
+          //"hashicorp.terraform",
+          //"discretegames.f5anything"
+          "streetsidesoftware.code-spell-checker"
+        ]
       }
     },
   
     // "forwardPorts": [3000],
+    // "portsAttributes": {
+    //   "3000": {
+    //     "label": "Hello Remote World",
+    //     "onAutoForward": "notify"
+    //   }
+    // },
   
-    "portsAttributes": {
-      "3000": {
-        "label": "Hello Remote World",
-        "onAutoForward": "notify"
-      }
-    },
-  
-    "postCreateCommand": "yarn install"
+    "postCreateCommand": "ls -la ./"
   
     // "remoteUser": "root"
   }
