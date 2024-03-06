@@ -15,4 +15,4 @@ fi
 
 # Test commands
 cd sample
-terraform apply./in 
+terraform apply
