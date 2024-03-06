@@ -8,10 +8,9 @@ FROM mcr.microsoft.com/devcontainers/python:3
 #RUN apt-get update && apt-get install -y \
 #    wget \
 #    unzip \
-#    terraform \
 #    direnv \
 #    && rm -rf /var/lib/apt/lists/*
-#T
+#
 ## Set up direnv hook
 #RUN echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
 #RUN echo 'eval "$(direnv hook bash)"' >> ~/.bash_profile
