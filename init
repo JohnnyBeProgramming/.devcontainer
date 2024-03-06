@@ -16,6 +16,14 @@ fi
 # Switch to the newly create cluster
 kubectl cluster-info --context "kind-$KIND_NAME"
 
+# TODO: Fetch values from: kubectl config view --minify --flatten --context=kind-$KIND_NAME
+cat <<- EOF
+host                   = "https://127.0.0.1:32768"
+client_certificate     = "..."
+client_key             = "..."
+cluster_ca_certificate = "..."
+EOF
+
 # Test commands
 cd sample
-kubectl config view --minify --flatten --context=kind-terraform-learn
+terraform init 
