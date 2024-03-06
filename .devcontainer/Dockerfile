@@ -11,7 +11,7 @@ FROM mcr.microsoft.com/devcontainers/python:3
 #    terraform \
 #    direnv \
 #    && rm -rf /var/lib/apt/lists/*
-#
+#T
 ## Set up direnv hook
 #RUN echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
 #RUN echo 'eval "$(direnv hook bash)"' >> ~/.bash_profile
