@@ -1,48 +1,51 @@
 {
-    "name": "Dev container with all the dependencies installed",
-    
+  "name": "Dev container with all the dependencies installed",
+  
 
-    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-    // "remoteUser": "root"
-    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 
-    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-    //"image": "mcr.microsoft.com/devcontainers/python:3",
-    "dockerComposeFile": "docker-compose.yml",
-    "service": "default",
-  
-    // Features to add to the dev container. More info: https://containers.dev/features.
-    "features": {
-      //"ghcr.io/devcontainers/features/docker-in-docker:2": {},
-      "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
-      "ghcr.io/mpriscella/features/kind:1": {},
-      "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
-      "ghcr.io/devcontainers/features/terraform:1": {},
-      "ghcr.io/devcontainers/features/aws-cli:1": {},
-      "ghcr.io/devcontainers/features/azure-cli:1": {}
-    },
-  
-    "customizations": {
-      "vscode": {
-        "settings": {},
-        "extensions": [
-          //"ms-azuretools.vscode-docker",
-          //"4ops.terraform",
-          //"hashicorp.terraform",
-          //"discretegames.f5anything"
-          "streetsidesoftware.code-spell-checker"
-        ]
-      }
-    },
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  //"image": "mcr.microsoft.com/devcontainers/python:3",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "default",
 
-  
-    // "forwardPorts": [3000],
-    // "portsAttributes": {
-    //   "3000": {
-    //     "label": "Hello Remote World",
-    //     "onAutoForward": "notify"
-    //   }
-    // },
-  
-    "postCreateCommand": "ls -la ./"  
-  }
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    // We can choose to use the host docker engine, or create an isolated virtual docker engine
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+    //"ghcr.io/devcontainers/features/docker-in-docker:2": { },
+
+    // Add support for tools used in the infrastructure and cloud
+    "ghcr.io/mpriscella/features/kind:1": {},
+    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
+    "ghcr.io/devcontainers/features/terraform:1": {},
+    "ghcr.io/devcontainers/features/aws-cli:1": {},
+    "ghcr.io/devcontainers/features/azure-cli:1": {}
+  },
+
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        //"ms-azuretools.vscode-docker",
+        //"4ops.terraform",
+        //"hashicorp.terraform",
+        //"discretegames.f5anything"
+        "streetsidesoftware.code-spell-checker"
+      ]
+    }
+  },
+
+
+  // "forwardPorts": [3000],
+  // "portsAttributes": {
+  //   "3000": {
+  //     "label": "Hello Remote World",
+  //     "onAutoForward": "notify"
+  //   }
+  // },
+
+  "postCreateCommand": "ls -la ./"  
+}
