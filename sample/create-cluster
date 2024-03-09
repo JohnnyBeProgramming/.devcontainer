@@ -2,7 +2,7 @@
 # -----------------------------------------------------------------------------
 set -euo pipefail # Stop running the script on first error...
 # -----------------------------------------------------------------------------
-KIND_NAME="terraform-learn"
+KIND_NAME="lab"
 KIND_CURL="https://raw.githubusercontent.com/hashicorp/learn-terraform-deploy-nginx-kubernetes-provider/main/kind-config.yaml"
 
 # Fetch a sample kind config
