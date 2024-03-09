@@ -1,0 +1,10 @@
+# ------------------------------------------------------------
+# This project is powered by: https://taskfile.dev
+# ------------------------------------------------------------
+version: 3
+dotenv: [".env"]
+silent: true # <-- Less verbose
+includes:
+  sample: { optional: true, taskfile: ./sample/ }
+tasks:
+  clean: git clean -fdX

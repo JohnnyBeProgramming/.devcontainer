@@ -14,16 +14,15 @@ if ! kind get clusters | grep $KIND_NAME > /dev/null; then
 fi
 
 # Switch to the newly create cluster
-kubectl cluster-info --context "kind-$KIND_NAME"
+kubectl cluster-info --context "kind-$KIND_NAME" 
 
 # TODO: Fetch values from: kubectl config view --minify --flatten --context=kind-$KIND_NAME
-cat <<- EOF
+cat <<- EOF > terraform.tfvars
 host                   = "https://127.0.0.1:32768"
-client_certificate     = "..."
-client_key             = "..."
-cluster_ca_certificate = "..."
+client_certificate     = "$(kubectl config view --minify --flatten --context="kind-$KIND_NAME" | yq -r '.users[].user["client-certificate-data"]')"
+client_key             = "$(kubectl config view --minify --flatten --context="kind-$KIND_NAME" | yq -r '.users[].user["client-key-data"]')"
+cluster_ca_certificate = "$(kubectl config view --minify --flatten --context="kind-$KIND_NAME" | yq -r '.clusters[].cluster["certificate-authority-data"]')"
 EOF
 
 # Test commands
-cd sample
-terraform init 
+terraform init
