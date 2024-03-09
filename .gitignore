@@ -3,5 +3,5 @@ node_modules/
 yarn.lock
 
 **/terraform.tfvars
-**/terraform.tfstate
+**/terraform.tfstate*
 **/.terraform/

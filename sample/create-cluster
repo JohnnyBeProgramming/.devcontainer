@@ -18,11 +18,8 @@ kubectl cluster-info --context "kind-$KIND_NAME"
 
 # TODO: Fetch values from: kubectl config view --minify --flatten --context=kind-$KIND_NAME
 cat <<- EOF > terraform.tfvars
-host                   = "https://127.0.0.1:32768"
+host                   = "$(kubectl config view --minify --flatten --context="kind-$KIND_NAME" | yq -r '.clusters[].cluster.server')"
 client_certificate     = "$(kubectl config view --minify --flatten --context="kind-$KIND_NAME" | yq -r '.users[].user["client-certificate-data"]')"
 client_key             = "$(kubectl config view --minify --flatten --context="kind-$KIND_NAME" | yq -r '.users[].user["client-key-data"]')"
 cluster_ca_certificate = "$(kubectl config view --minify --flatten --context="kind-$KIND_NAME" | yq -r '.clusters[].cluster["certificate-authority-data"]')"
 EOF
-
-# Test commands
-terraform init

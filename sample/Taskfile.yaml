@@ -5,7 +5,7 @@ version: 3
 env: # <-- Project Configuration (required ENV vars)
   ENVIRONMENT: "{{ .ENVIRONMENT }}"
 tasks:
-  init: echo cd {{ .TASK_DIR }} -- terraform init
-  plan: cd {{ .TASK_DIR }} && terraform plan
-  apply: cd {{ .TASK_DIR }} && terraform apply
-  clean: git clean -fdX
+  create: ./create-cluster
+  init: terraform init
+  plan: terraform plan
+  apply: terraform apply
